@@ -8,18 +8,18 @@ gulp.task('hello', function() {
 })
 
 gulp.task('deleteCss', function (){
-  return gulp.src('src/components/header/**/*.css', {read: false})
+  return gulp.src('src/**/*.css', {read: false})
     .pipe(clean())
 })
 
 gulp.task('sass', ['deleteCss'], function() {
-  return gulp.src('src/components/**/*.scss')
+  return gulp.src('src/**/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('src/components/'))
+    .pipe(gulp.dest('src/'))
 })
 
 gulp.task('compile', ['sass'], function() {
-  gulp.watch('src/components/**/*.scss', function() {
+  gulp.watch('src/**/*.scss', function() {
     gulp.run('sass')
   })
 })
